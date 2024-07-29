@@ -12,6 +12,9 @@ const CourseChapters = () => {
             <div className='m-20'>
                 <h1 className='font-semibold text-2xl'>Course Contents</h1>
                 <div className='mt-5'>
+                    <div className='border-2 bg-pink-100 p-5 mx-5 cursor-pointer mb-4'>
+                        <p>Syllabus</p>
+                    </div>
                     {[...Array(8).keys()].map((chapter) => (
                         <div key={chapter} className='mb-4'>
                             <div

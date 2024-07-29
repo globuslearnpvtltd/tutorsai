@@ -1,19 +1,11 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { learnerLogout } from '../../Redux/Slices/authSlice'
 import toast from 'react-hot-toast'
 
-const navigation = [
-  { name: 'Courses', href: '#', current: true },
-  { name: 'Programs', href: '#', current: false },
-  { name: 'Discover New', href: '#', current: false },
-]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Example() {
 
@@ -26,6 +18,9 @@ export default function Example() {
     navigate("/learner/login");
   }
   return (
+    <div className=' w-full top-0 z-10'>
+
+    
     <Disclosure as="nav" className="bg-white shadow-xl ">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  ">
         <div className="relative flex h-20 items-center justify-between">
@@ -47,19 +42,11 @@ export default function Example() {
               />
             </div>
             <div className="hidden sm:flex sm:space-x-4 pl-5">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  aria-current={item.current ? 'page' : undefined}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-gray-700 hover:text-white',
-                    'rounded-md px-3 py-2 text-sm font-medium'
-                  )}
-                >
-                  {item.name}
-                </a>
-              ))}
+              
+              <Link to={'/dashboard'}><p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Dashboard</p></Link>
+              <p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Courses</p>
+              <p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Programs</p>
+              <p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Discover</p>
             </div>
           </div>
 
@@ -126,22 +113,13 @@ export default function Example() {
 
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium',
-              )}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
+        <Link to={'/dashboard'}><p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Dashboard</p></Link>
+              <p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Courses</p>
+              <p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Programs</p>
+              <p className='rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white'>Discover</p>
         </div>
       </DisclosurePanel>
     </Disclosure>
+    </div>
   )
 }

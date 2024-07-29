@@ -10,6 +10,8 @@ import { NotPrivateRoute, PrivateRoute } from '../Components/PrivateRoutes/Priva
 import CourseViewPage from '../Pages/Learner/CourseViewPage.jsx';
 import DetailedCourseView from '../Pages/Learner/DetailedCourseView.jsx';
 import SectionViewPage from '../Pages/Learner/SectionViewPage.jsx';
+import Dashboard from '../Pages/Learner/Dashboard.jsx';
+import ProfilePage from '../Pages/Learner/ProfilePage.jsx';
 
 const LearnerRoutes = () => {
   return (
@@ -19,6 +21,8 @@ const LearnerRoutes = () => {
         <Route path="/courseView" element={<CourseViewPage/>}/>
         <Route path='/detailedCourseView' element={<DetailedCourseView/>}/>
         <Route path='/sectionView' element={<SectionViewPage/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/profile' element={<ProfilePage/>}/>
       </Route>
       <Route path='' element={<NotPrivateRoute />}>
         <Route path="/learner/login" element={<LoginPage />} />
